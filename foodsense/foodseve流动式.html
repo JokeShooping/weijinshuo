@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Sense | Plat-Bases</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no,
+          initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style type="text/css">
+        /*清除样式*/
+        html, body, div, span, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+        small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, figcaption, figure,
+        footer, header, menu, nav, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+            font-weight: inherit;
+            font-style: normal;
+            vertical-align: baseline;
+            background: transparent;
+            border: 0;
+            outline: 0;
+        }
+
+        /* HTML5 RESETS FOR OLDER BROWSERS */
+        article, aside, figure, figure img, hgroup, footer, header, nav, section {
+            display: block;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+        html,body{
+            width: 100%;
+        }
+        .wrap{
+            width: 1080px;
+            margin: 50px auto 0;
+        }
+        /*头部导航栏*/
+       #header{
+            width: 160px;
+            position: relative;
+           float: left;
+        }
+        #header>h1{
+            width:120px;
+            height:120px;
+            /*background-color:yellow;*/
+            margin-bottom:30px;
+            z-index: -9999em;
+            background: url("./img/food-sense.png");
+        }
+        #header>h1:hover{
+            opacity: .4;
+        }
+        #header>ul{
+            width: 100%;
+        }
+        #header>ul>li{
+            margin-bottom:8px;
+        }
+        #header>ul>li:last-child{
+            margin-bottom: 0;
+        }
+        #header a{
+            display: inline-block;
+            padding: 10px 0 10px 50px;
+            height: 32px;
+            background-position: 0;
+            color: #34AC98;
+            background-repeat: no-repeat;
+        }
+        #header .Tastemakers{
+            background-image: url("./img/nav-tastemakers.png");
+        }
+        #header .Tastemakers:hover{
+            color: #EC6635;
+            cursor: pointer;
+            background-position: 5px 65%;
+        }
+        #header .Blog{
+            background-image: url("./img/nav-blog.png");
+        }
+        #header .Blog:hover{
+            color: #EC6635;
+            cursor: pointer;
+            background-position: 5px 65%;
+        }
+        #header .A-List{
+            background-image: url("./img/nav-alist.png");
+        }
+        #header .A-List:hover{
+            color: #EC6635;
+            cursor: pointer;
+            background-position: 5px 65%;
+        }
+        #header .Contribute{
+            background-image: url("./img/nav-contribute.png");
+        }
+        #header .Contribute:hover{
+            color: #EC6635;
+            cursor: pointer;
+            background-position: 5px 65%;
+        }
+        #header .About{
+            background-image: url("./img/nav-about.png");
+        }
+        #header .About:hover{
+            color: #EC6635;
+            cursor: pointer;
+            background-position: 5px 65%;
+        }
+        /*轮播图*/
+        .conter{
+            width: 896px;
+            height: 460px;
+            position: relative;
+            float: right;
+            /*background-color: yellow;*/
+        }
+        #fontent{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #fontent img{
+            width: 896px;
+            height: 460px;
+        }
+        .Redt{
+            position: absolute;
+            top: 285px;
+        }
+        .Redt h1{
+            padding: 10px 24px 15px;
+            color: #222;
+            width:184px;
+            height:24px;
+            font-style: italic;
+            background: #FFF;
+            font-size: 1.2em;
+            transition: opacity .2s ease;
+        }
+        .Redt h2{
+            width:375px;
+            height:22px;
+            font-style: italic;
+            top: 334px;
+            padding: 10px 24px 12px;
+            color: #E9E9E9;
+            font-weight: normal;
+            font-size: 0.8em;
+            background: #111;
+            left: 0;
+            transition: opacity .2s ease;
+        }
+        .Redt h1:hover{
+            opacity: .6;
+            cursor: pointer;
+        }
+        .Redt h2:hover{
+            opacity: .7;
+            cursor: pointer;
+        }
+        .credit{
+            width:140px;
+            height:16px;
+            position: absolute;
+            right: 10px;
+            top: 423px;
+            padding: 6px 8px 6px;
+            font-size: .5em;
+            background: #F5F5F5;
+            background: rgba(255,255,255,.5);
+            text-shadow: 0 1px 0 rgba(255,255,255,.5);
+            border-radius: 3px;
+        }
+        .credit p{
+            width: 100%;
+            height: 100%;
+            color: #555;
+        }
+        .credit p a{
+            color: #555;
+        }
+        .credit:hover a{
+            color: #EC6635;
+        }
+        /*左侧边栏*/
+        .left{
+            width:183px;
+            height:585px;
+            /*border: 1px solid green;*/
+            position: relative;
+            top:52px;
+            float: left;
+        }
+        .twitter{
+            width:160px;
+            height:57px;
+            display: block;
+            margin-bottom: 32px;
+            padding-right: 20px;
+        }
+        .twitter h1{
+            margin: 0 0 9px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            font-size: .75em;
+            border-bottom: 1px dashed #E5E5E5;
+        }
+        .twitter p{
+            margin-bottom: 15px;
+            line-height: 1.75em;
+            font-size: .6825em;
+            font-style: italic;
+            overflow: hidden;
+        }
+        .twitter p .button{
+            width: 130px;
+            height: 24px;
+            padding: 4px 0 0 28px;
+           display: block;;
+            border-radius: 5px;
+            color: #34AC98;
+            transition: all .2s ease;
+            box-shadow: 1px 1px 2px #F5F5F5;
+            border: 1px solid #E5E5E5;
+            background: no-repeat 6px 6px;
+            background-image: url("./img/icon-twitter-16.png") ;
+        }
+        .twitter a.button:hover {
+            color: #EC6635;
+            background-color: #EFF8F7;
+            cursor: pointer;
+        }
+        .facebook{
+            width:160px;
+            height:162px;
+
+        }
+        .facebook h1{
+            width:100%;
+            height:18px;
+            margin: 0 0 9px;
+            padding-bottom: 5px;
+            text-transform: uppercase;
+            font-size: .75em;
+            border-bottom: 1px dashed #E5E5E5;
+        }
+        .facebook p{
+            width:100%;
+            height:84px;
+            margin-bottom: 15px;
+            line-height: 1.75em;
+            font-size: .6825em;
+            font-style: italic;
+            overflow: hidden;
+        }
+        .facebook .join{
+            width:100%;
+            height: 30px;
+        }
+        .facebook .join .button{
+            width: 130px;
+            height: 24px;
+            padding: 4px 0 0 28px;
+            display: block;;
+            border-radius: 5px;
+            color: #34AC98;
+            transition: all .2s ease;
+            box-shadow: 1px 1px 2px #F5F5F5;
+            border: 1px solid #E5E5E5;
+            background: no-repeat 6px 6px;
+            background-image: url("./img/icon-facebook-16.png") ;
+        }
+       .facebook a.button:hover {
+            color: #EC6635;
+            background-color: #EFF8F7;
+            cursor: pointer;
+        }
+       /*右侧边栏*/
+        .right{
+            width:896px;
+            height:590px;
+            /*background-color:yellow;*/
+            position: relative;
+            float: right;
+        }
+        .nav{
+            width:100%;
+            height:85px;
+            margin-bottom: 30px;
+            /*background-color:lightcyan;*/
+        }
+        .nav ul{
+            width: 100%;
+            height: 100%;
+        }
+        .nav ul li{
+            width:224px;
+            height:85px;
+            float: left;
+            /*background-color:#EFF8F7;*/
+        }
+        /*.nav ul li:nth-child(2n){*/
+
+            /*background-color:honeydew;*/
+        /*}*/
+        .nav ul li a{
+            width:191px;
+            height:60px;
+            padding: 25px 12px 0 20px;
+            display: block;
+            line-height: 1.1em;
+            color: #60BEAE;
+            border-right: 1px solid #D3EDE9;
+            text-shadow: 0 1px 0 #FFF;
+            box-shadow: 1px 0 0 #FAFDFC;
+        }
+        .nav ul .Tast a h3{
+            font-size: 1.125em;
+        }
+        .nav ul .Tast a p{
+            font-size: .75em;
+            font-style: italic;
+            display: inline;
+        }
+        .nav .Tast a:hover{
+            color: #EC6635;
+            background-color:honeydew;
+            cursor: pointer;
+        }
+        .newsletter{
+            width:100%;
+            height:46px;
+            overflow: hidden;
+            clear: both;
+            min-height: 48px;
+            margin-bottom: 29px;
+            line-height: 1em;
+            border-top: 1px dashed #E5E5E5;
+            border-bottom: 1px dashed #E5E5E5;
+            background: url("./img/icon-mailinglist-32.png") no-repeat 18px 7px;
+        }
+        .newsletter p{
+            float: left;
+            width: 49%;
+            padding: 7px 24px 10px 66px;
+            font-size: .75em;
+            font-style: italic;
+        }
+        .formt{
+            width:353x;
+            height:24px;
+            float: left;
+            display: block;
+            margin-top: 11px;
+        }
+        .formt .email{
+            width:260px;
+            height:18px;
+        }
+        .formt .hide{
+            display: none;
+        }
+        .formt  input{
+            width:100%;
+            height:18px;
+            vertical-align: middle;
+        }
+
+        .submit input{
+            width:80px;
+            height:23px;
+           position: absolute;
+            left:805px;
+            border-radius: 3px;
+            top:127px;
+        }
+        .recent {
+            width:100%;
+            height:379px;
+            /*background-color:lemonchiffon;*/
+        }
+        .recent article{
+          width:206px;
+          height:351px;
+          /*background-color:seashell;*/
+          float: left;
+            margin: 0 24px 25px 0;
+            display: block;
+        }
+        .recent article a:hover img{
+            opacity: .75;
+            cursor: pointer;
+        }
+        .recent h1:hover{
+            color: #EC6635;
+            cursor: pointer;
+        }
+        .recent article:nth-child(4) {
+            margin-right: 0;
+        }
+        .recent article img{
+            padding: 9px;
+            background: #FFF;
+            width:185px;
+            height:123px;
+            border: 1px solid #E5E5E5;
+            box-shadow: 1px 1px 3px #F5F5F5;
+        }
+        .recent article h1{
+            width:100%;
+            height:40px;
+            color: #34AC98;
+            margin: 10px 0 10px;
+            line-height: 1.3em;
+        }
+        .recent article p{
+            font-size: .875em;
+            line-height: 1.45em;
+        }
+        .recent span{
+            margin-top: 10px;
+            color: #AAA;
+            font-size: .875em;
+            line-height: 1.45em
+        }
+        .recent span a:hover{
+            color: #EC6635;
+            cursor: pointer;
+        }
+        /*底部栏目*/
+        .siteinfo{
+            width:100%;
+            height:92px;
+            position: relative;
+            top:1080px;
+            /*background-color:lemonchiffon;*/
+            min-height: 70px;
+            padding-top: 20px;
+            border-top: 2px solid #E5E5E5;
+            color: #AAA;
+        }
+        .siteinfo p{
+            width:1080px;
+            height:36px;
+            line-height: 1.5em;
+            font-size: .75em;
+            position: absolute;
+            /*background-color:yellow;*/
+        }
+        span a:hover{
+            color: #EC6635;
+            cursor: pointer;
+        }
+        p a:hover{
+            color: #EC6635;
+            cursor: pointer;
+        }
+        /*.copy{*/
+            /*display:block;*/
+            /*width: 215px;*/
+            /*height: 16px;*/
+
+        /*}*/
+        .siteinfo .sclie{
+            /*width:111px;*/
+            /*height:36px;*/
+            /*position: absolute;*/
+            /*right: 0;*/
+            position: absolute;
+            top: 20px;
+            right: 0;
+            /*background-color: chartreuse;*/
+        }
+        .siteinfo  .sclie ul{
+            width:111px;
+            height:36px;
+        }
+        .siteinfo .sclie ul li{
+            display: inline;
+            width:111px;
+            height:36px;
+            /*margin-left: 2px;*/
+        }
+        .siteinfo  .ter a{
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            text-indent: -999em;
+            opacity: .4;
+            transition: opacity .3s ease;
+            background: url("./img/icon-twitter.png") no-repeat 50% 1px;
+        }
+        .ter a:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        .siteinfo  .Facebook a{
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            text-indent: -999em;
+            opacity: .4;
+            transition: opacity .3s ease;
+            background: url("./img/icon-facebook.png") no-repeat 50% 0;
+        }
+        .Facebook a:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        .siteinfo  .Subscribe a{
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            text-indent: -999em;
+            opacity: .4;
+            transition: opacity .3s ease;
+            background: url("./img/icon-rss.png") no-repeat 50% 1px;
+        }
+        .Subscribe a:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+
+        /*@media screen and(max-width: 1175px) and(min-width: 991px){*/
+           /*.wrap{*/
+               /*width: 896px;*/
+           /*}*/
+        /*}*/
+        @media screen and (max-width: 990px){
+           .wrap{
+               width: 712px;
+           }
+            #header{
+                width: 712px;
+            }
+            #header nav{
+                width: 528px;
+                position:absolute;
+                right: 0;
+                top: 20px;
+            }
+            #header ul{
+                width: 100%;
+            }
+            #header ul >li{
+                display: inline-block;
+            }
+            #header a{
+                padding: 45px 10px 0;
+                background-position: 50% 0;
+            }
+            #header .Tastemakers:hover{
+                color: #EC6635;
+                cursor: pointer;
+                background-position:0 0px;
+            }
+            #header .Blog:hover{
+                color: #EC6635;
+                cursor: pointer;
+                background-position: 0 0;
+            }
+            #header .A-List:hover{
+                color: #EC6635;
+                cursor: pointer;
+                background-position: 0 0;
+            }
+            #header .Contribute:hover{
+                color: #EC6635;
+                cursor: pointer;
+                background-position: 0 0;
+            }
+            #header .About:hover{
+                color: #EC6635;
+                cursor: pointer;
+                background-position: 0 0;
+            }
+            #fontent img{
+                width:896px;
+                height:460px;
+               position: absolute;
+                left:100px;
+            }
+            .Redt h1{
+                position: absolute;
+                left:100px;
+            }
+            .Redt h2{
+               margin-left: 100px;
+                margin-top:49px;
+            }
+            .credit{
+                position: absolute;
+                left:830px;
+            }
+            .nav{
+                width:712px;
+                height:35px;
+                text-align: center;
+            }
+
+            .nav ul li{
+                float: left;
+                width:178px;
+                height:35px;
+                text-align: center;
+            }
+        }
+        @media screen  and (max-width: 768px){
+           .wrap{
+               width: 480px;
+           }
+            #header a{
+                background: none no-repeat center 0;
+                padding: 0 10 0 0;
+                font-size: 12px;
+            }
+            #header nav {
+                width: 380px;
+                top: 30px;
+                left: 140px;
+            }
+        }
+        @media screen and (max-width: 414px){
+           .wrap{
+               width: 320px;
+           }
+            #header{
+                width:320px;
+                height:40px;
+                /*background-color:yellow;*/
+            }
+            #header h1{
+                width: 100%;
+                background-position: 50% -60px;
+                background-repeat: no-repeat;
+                position: absolute;
+                top: 40px;
+                background-size: 120px;
+            }
+            #header nav {
+                top: -40px;
+                left: -20px;
+                position: absolute;
+                margin: 0 auto;
+            }
+            #header nav a{
+                background-image: none;
+            }
+        }
+
+    </style>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery-powerSwitch.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <!--头部导航栏-->
+    <header id="header">
+      <!--  nav>ul>li*5>a["javascript:;"]-->
+        <!--Food Sense-->
+        <h1></h1>
+        <nav>
+            <ul>
+                <li><a  class="Tastemakers" href="javascript:;">Tastemakers</a></li>
+                <li><a class="Blog" href="javascript:;">Blog</a></li>
+                <li><a class="A-List" href="javascript:;">The A-List</a></li>
+                <li><a class="Contribute" href="javascript:;">Contribute</a></li>
+                <li><a class="About" href="javascript:;">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--轮播图-->
+    <div class="conter">
+        <div id="fontent" class="jd_slide">
+            <img src="img/0052_foodsense.jpg" alt="">
+            <img src="img/0140_foodsense.jpg" alt="">
+            <img src="img/0219_foodsense.jpg" alt="">
+            <img src="img/0232_foodsense.jpg" alt="">
+            <div id="jdAdBtn" class="jd_ad_btn"></div>
+        </div>
+         <div class="Redt">
+             <h1>Read, Learn, Share</h1>
+             <h2>Get daily how-tos, stories & updates with the latest news. </h2>
+         </div>
+        <div class="credit"><p>photo by <a href="javascript:;">Clare Barboza</a></p></div>
+    </div>
+    <!--左侧边栏-->
+    <div class="left">
+    <section class="twitter">
+        <h1>Latest Tweet</h1>
+        <p>
+            <a href="javascript:;" class="button">Join the Conversation</a>
+        </p>
+    </section>
+    <section class="facebook">
+        <h1>Let's be friends!</h1>
+        <p>For weekly finds, community recommendations, and more, like us on Facebook.</p>
+        <p class="join"><a href="javascript:;" class="button">Join the Community</a></p>
+    </section>
+    </div>
+    <!--右侧边栏-->
+    <div class="right">
+      <div class="nav">
+          <ul>
+              <li class="Tast">
+                  <a href="javascript:;">
+                  <h3>Tastemakers</h3>
+                  <p>Feast your eyes & get recipes!</p>
+              </a></li>
+              <li class="Tast"><a href="javascript:;">
+                  <h3>Blog</h3>
+                  <p>News, how-tos,stories, and more</p>
+              </a></li>
+              <li class="Tast"><a href="javascript:;">
+                  <h3>The A-List</h3>
+                  <p>Handpicked, absolute favorites</p>
+              </a></li>
+              <li class="Tast"><a href="javascript:;">
+                  <h3>Contribute</h3>
+                  <p>We want to hear from you!</p>
+              </a></li>
+          </ul>
+      </div>
+       <section class="newsletter">
+        <p>Sign up for our newsletter to receive a handpicked selection of the best stories,
+            recipes, and news, delivered weekly to your inbox.</p>
+           <form action="#" class="formt">
+               <fieldset class="email">
+                   <label for="email" class="hide">Email</label>
+                   <input type="email" name="EMAIL " value="" placeholder="Email">
+               </fieldset>
+               <fieldset class="submit">
+                   <input type="submit" name="subscribe" value="Subscribe">
+               </fieldset>
+           </form>
+       </section>
+        <section class="recent">
+            <article>
+                <a href="javascript:;">
+                    <img src="./img/cookbooks_blog.jpg" alt="">
+                    <h1>2012’s Best Summer Cookbooks</h1>
+                </a>
+                <p>With the best of the season coming from“orchards,
+                    farms and gardens,”NPR has put together an impressive
+                    collection of 10 summer cookbooks.</p>
+                <span>
+                    <time datetime="2012-05-23T02:41-05:00" pubdate>May 23, 2012</time> / 
+                    <a href="javascript:;">Read »</a>
+                </span>
+            </article>
+            <article>
+                <a href="javascript:;">
+                    <img src="./img/SweetPotatoChips.jpg" alt="">
+                    <h1>How to Make Vegetable Chips</h1>
+                </a>
+                <p>About a month ago, I ate almost an entire box of kale chips. My brother and I were visiting our
+                    cousin in Brooklyn, and before a very thoughtfully prepared vegan…</p>
+                <span>
+                    <time datetime="2012-05-17T08:35-05:00" pubdate>May 17, 2012</time> /
+                    <a href="javascript:;">Read »</a>
+                </span>
+            </article>
+            <article>
+                <a href="javascript:;">
+                    <img src="./img/Pinterest_Page_featured.png" alt="">
+                    <h1 style="height: 20px">Join us on Pinterest!</h1>
+                </a>
+                <p>If I could curate a cookbook for you, this would be it.</p>
+                <span style="display: inline-block;margin-top: 10px;">
+                    <time datetime="2012-05-16T09:59-05:00" pubdate>May 16, 2012</time> /
+                    <a href="javascript:;">Read »</a>
+                </span>
+            </article>
+            <article>
+                <a href="javascript:;">
+                    <img src="./img/Adithi_Dinner_blog.jpg" alt="">
+                    <h1>Recipes from a Sunday Supper</h1>
+                </a>
+                <p>I could not figure out what to do with the delectable slices of Pear Cake that I brought home from this
+                    wonderful Sunday supper - eat them slowly, a little bit at…</p>
+                <span>
+                    <time datetime="2012-05-15T09:42-05:00" pubdate>May 15, 2012</time> /
+                    <a href="javascript:;">Read »</a>
+                </span>
+            </article>
+        </section>
+    </div>
+    <!--底部栏目-->
+    <footer class="siteinfo">
+        <p>
+            <a href="javascript:;">Privacy Policy</a> |
+            <a href="javascript:;">Terms of Use</a> |
+            <span><a href="javascript:;">Contact</a></span><br>
+            © 2017 Food Sense,all rights reserved.
+        </p>
+        <div class="sclie">
+            <ul>
+                <li class="ter"><a href="javascript:;">Twitter</a></li>
+                <li class="Facebook"><a href="javascript:;">Facebook</a></li>
+                <li class="Subscribe"><a href="javascript:;">Subscribe via RSS</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+</body>
+<script type="text/javascript">
+    var htmlAdBtn = '';
+    $("#fontent img").each(function(index, image) {
+        var id = "adImage" + index;
+        htmlAdBtn = htmlAdBtn+ '<a href="javascript:"' +
+            ' class="jd_slide" data-rel="'+ id +'">'+ (index + 1) +'</a>' ;
+        image.id = id;
+    })
+    $("#jdAdBtn").html(htmlAdBtn).find("a").powerSwitch({
+        eventType: "hover",
+        classAdd: "active",
+        animation: "fade",
+        autoTime: 5000,
+        onSwitch: function(image) {
+            if (!image.attr("src")) {
+                image.attr("src", image.attr("src"));
+            }
+        }
+    }).eq(0).trigger("mouseover");
+
+    $("#servNav a").powerSwitch({
+        classAdd: "active",
+        eventType: "hover",
+        onSwitch: function() {
+            $("#pointLine").animate({ "left": $(this).position().left}, 200);
+        }
+    });
+</script>
+</html>
